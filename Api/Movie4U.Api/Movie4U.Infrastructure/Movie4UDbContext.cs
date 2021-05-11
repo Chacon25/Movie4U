@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Movie4U.Core.Entities;
+using Movie4U.Infrastructure.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,6 @@ namespace Movie4U.Infrastructure
         {
             modelBuilder.ApplyConfiguration(new ChoiceConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
-            modelBuilder.ApplyConfiguration(new MovieConfiguration());
             modelBuilder.ApplyConfiguration(new MovieConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
