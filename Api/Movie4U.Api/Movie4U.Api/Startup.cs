@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Movie4U.Core.Interfaces;
+using Movie4U.Core;
 using Movie4U.Infrastructure;
 using Movie4U.Infrastructure.Repository;
 using System;

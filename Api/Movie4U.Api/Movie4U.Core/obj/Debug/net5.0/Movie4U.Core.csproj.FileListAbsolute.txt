@@ -2,7 +2,6 @@ C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Co
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Core\bin\Debug\net5.0\Movie4U.Core.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Core\bin\Debug\net5.0\ref\Movie4U.Core.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Core\bin\Debug\net5.0\Movie4U.Core.pdb
-C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Core\obj\Debug\net5.0\Movie4U.Core.csprojAssemblyReference.cache
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Core\obj\Debug\net5.0\Movie4U.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Core\obj\Debug\net5.0\Movie4U.Core.AssemblyInfoInputs.cache
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Core\obj\Debug\net5.0\Movie4U.Core.AssemblyInfo.cs

@@ -480,6 +480,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.6",
+          "Microsoft.EntityFrameworkCore.Sqlite": "5.0.6",
           "Movie4U.Core": "1.0.0"
         },
         "compile": {
