@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Movie4U.Core.Entities;
+using Movie4U.Core.Enum;
+using Movie4U.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +15,23 @@ namespace Movie4U.Api.Controllers
     public class MovieController : Controller
     {
 
-        private readonly IMovieService _IMovieService;
+        private readonly IMovieService _movieService;
 
-        public IActionResult Index()
+        public MovieController(IMovieService movieService)
         {
-            return View();
+            _movieService = movieService;
         }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Movie>>> Get()
+        {
+
+            var ServiceResult = await _movieService.GetAll();
+            if (ServiceResult.ResponseCode != ResponseCode.Success)
+                return BadRequest(ServiceResult.Error);
+
+            return Ok(ServiceResult.Result);
+        }
+
     }
 }

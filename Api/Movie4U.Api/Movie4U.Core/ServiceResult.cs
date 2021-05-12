@@ -30,7 +30,7 @@ namespace Movie4U.Core
 
         }
 
-        public static ServiceResult<T> SuccesResult(T entity )
+        public static ServiceResult<T> SuccessResult(T entity )
         {
             return new ServiceResult<T>(ResponseCode.Success, string.Empty, entity);
 

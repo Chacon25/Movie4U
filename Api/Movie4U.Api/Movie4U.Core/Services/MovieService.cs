@@ -18,9 +18,10 @@ namespace Movie4U.Core.Services
             _movieService = movieService;
         }
 
-        public Task<ServiceResult<IEnumerable<Movie>>> GetAll()
+        public async Task<ServiceResult<IEnumerable<Movie>>> GetAll()
         {
-            throw new NotImplementedException();
+            var result = await _movieService.FillterAll();
+            return ServiceResult<IEnumerable<Movie>>.SuccessResult(result);
         }
     }
 }
