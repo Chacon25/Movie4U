@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Movie4U.Infrastructure\Movie4U.Infrastructure.csproj" />
   </ItemGroup>
 
