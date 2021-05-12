@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Movie4U.Infrastructure.Repository
 {
-    class MovieRepository : IMovieRepository
+    public class MovieRepository : IMovieRepository
     {
 
         private readonly Movie4UDbContext _movieDbContext;

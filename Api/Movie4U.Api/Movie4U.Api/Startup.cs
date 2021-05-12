@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Movie4U.Core.Services;
 
 namespace Movie4U.Api
 {
@@ -36,6 +37,8 @@ namespace Movie4U.Api
             services.AddHttpContextAccessor();
             services.AddDbContext<Movie4UDbContext>((s, o) => o.UseSqlite("Data Source=Movie4Udb.db"));
             services.AddScoped(typeof(IRepository<>), typeof(EntityFrameworkRepository<>));
+            services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IMovieService, MovieService>();
 
 
             services.AddSwaggerGen(c =>
