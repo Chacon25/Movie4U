@@ -2,11 +2,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Movie4U.Core.Interfaces;
+using Movie4U.Infrastructure;
+using Movie4U.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +32,11 @@ namespace Movie4U.Api
         {
 
             services.AddControllers();
+            services.AddHttpContextAccessor();
+            services.AddDbContext<Movie4UDbContext>((s, o) => o.UseSqlite("Data Source=Movie4Udb.db"));
+            services.AddScoped(typeof(IRepository<>), typeof(EntityFrameworkRepository<>));
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Movie4U.Api", Version = "v1" });

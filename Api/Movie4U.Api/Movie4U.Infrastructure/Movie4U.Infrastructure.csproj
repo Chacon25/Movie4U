@@ -12,4 +12,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Movie4U.Core\Movie4U.Core.csproj" />
+  </ItemGroup>
+
 </Project>
