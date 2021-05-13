@@ -17,7 +17,7 @@ namespace Movie4U.Infrastructure.Configurations
             builder.Property(xx => xx.Id).ValueGeneratedOnAdd();
 
             builder.Property(xx => xx.UserId).IsRequired();
-            builder.Property(xx => xx.GenreId).IsRequired();
+           
 
         }
     }

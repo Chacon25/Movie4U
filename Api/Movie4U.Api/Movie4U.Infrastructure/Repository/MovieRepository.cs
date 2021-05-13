@@ -21,7 +21,16 @@ namespace Movie4U.Infrastructure.Repository
         }
         public async Task<IEnumerable<Movie>> FillterAll()
         {
-            return await _movieDbContext.Movie.ToListAsync();
+            return await _movieDbContext.Movie.Include(x=>x.Genres).Select(x => new Movie { 
+               Genres = x.Genres.Select(y => new Genre { 
+                Choices = y.Choices,
+                Id = y.Id,
+                Name = y.Name,
+               }).ToList() ,
+               Id = x.Id,
+               Name = x.Name
+            
+            }).ToListAsync();
         }
     }
 }

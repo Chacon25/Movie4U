@@ -42,6 +42,7 @@ namespace Movie4U.Api
 
 
             services.AddSwaggerGen(c =>
+
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Movie4U.Api", Version = "v1" });
             });

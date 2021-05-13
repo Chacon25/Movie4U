@@ -12,11 +12,14 @@ namespace Movie4U.Core.Entities
         public Genre()
         {
             Movies = new List<Movie>();
+            Choices = new List<Choice>();
         }
 
         public string Name { get; set; }
 
         public ICollection<Movie> Movies { get; set; }
+
+        public ICollection<Choice> Choices { get; set; }
 
 
     }
