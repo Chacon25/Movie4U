@@ -4,12 +4,7 @@ import './App.css';
 import Display from "./displays";
 
 
-interface genres {
 
-  id: number;
-  name: string;
-
-}
 
 interface Movie {
   id: number;
