@@ -6,29 +6,12 @@ export type MovieView = {
     overview: string;
     poster_path: string;
 };
-
-function onChange(checkedValues: any) {
-    console.log("checked = ", checkedValues);
-}
 export default function Display(props: MovieView) {
     return (
-        <Checkbox.Group style={{ width: "100%" }} onChange={onChange}>
-            <>
-                <Col span={8}>
-                    <Row>
-                        {" "}
-                        <Image
-                            width={200}
-                            src={props.poster_path}
-                        />
-                    </Row>
-                    <Row>
-                        {" "}
-                        <Checkbox value={props.id}>{props.title}</Checkbox>
-                        <div>{props.overview}</div>
-                    </Row>
-                </Col>
-            </>
-        </Checkbox.Group>
+        <Col span={8} style={{ display: 'flex', flexDirection: 'column', alignItems: "center" }}>
+            <img src={props.poster_path} width={150} alt="image poster" />
+            <div style={{ maxWidth: '190px' }}><Checkbox value={props.id}>{props.title}</Checkbox></div>
+        </Col>
     );
+
 }

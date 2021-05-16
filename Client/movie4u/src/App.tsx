@@ -1,10 +1,6 @@
-import { Row } from "antd";
+import { Row, Checkbox } from "antd";
 import React, { useEffect, useState } from "react";
-import './App.css';
 import Display from "./displays";
-
-
-
 
 interface Movie {
   id: number;
@@ -23,13 +19,16 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Row>
-        {posts.map((post) => (
-          <Display title={post.title} overview={post.overview} poster_path={"http://image.tmdb.org/t/p/w185/" + post.poster_path} id={post.id} key={post.id} />
-        ))}
-      </Row>
-    </div>
+    <div>
+      <Checkbox.Group onChange={(checkedValues) => console.log(checkedValues)
+      }>
+        <Row gutter={[8, 8]}>
+          {posts.map((post) => (
+            <Display title={post.title} overview={post.overview} poster_path={"http://image.tmdb.org/t/p/w185/" + post.poster_path} id={post.id} key={post.id} />
+          ))}
+        </Row>
+      </Checkbox.Group>
+    </div >
   );
 }
 
