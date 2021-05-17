@@ -1,4 +1,5 @@
-import { Col, Row, Image, Checkbox } from "antd";
+import { Col, Row, Image, Checkbox, Card } from "antd";
+const { Meta } = Card;
 
 export type MovieView = {
     title: string;
@@ -8,9 +9,11 @@ export type MovieView = {
 };
 export default function Display(props: MovieView) {
     return (
-        <Col span={8} style={{ display: 'flex', flexDirection: 'column', alignItems: "center" }}>
-            <img src={props.poster_path} width={150} alt="image poster" />
-            <div style={{ maxWidth: '190px' }}><Checkbox value={props.id}>{props.title}</Checkbox></div>
+        <Col span={8} style={{ display: 'flex', flexDirection: 'column', alignItems: "center" }} >
+            <Card style={{ flex: 1, minWidth: '330px', display: "flex", alignItems: "center", flexDirection: 'column', textAlign: 'center' }}>
+                <img src={props.poster_path} width={150} alt="image poster" style={{ paddingBottom: '20px', }} />
+                <div style={{ maxWidth: '190px' }}><Checkbox value={props.id}>{props.title}</Checkbox></div>
+            </Card>
         </Col>
     );
 
