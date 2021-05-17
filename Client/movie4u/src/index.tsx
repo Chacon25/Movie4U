@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Header from './header';
 import reportWebVitals from './reportWebVitals';
 import "antd/dist/antd.css";
 
 ReactDOM.render(
   <React.StrictMode>
+    <Header />
     <App />
-  </React.StrictMode>,
+  </React.StrictMode >,
   document.getElementById('root')
 );
 
