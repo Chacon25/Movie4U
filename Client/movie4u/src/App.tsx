@@ -13,15 +13,15 @@ export interface Movie {
 }
 
 type AppProps = {
-  onChange(): void;
+  onChange(MovieChoices: MovieChoice[]): void;
 }
 
 function App(props: AppProps) {
   const [posts, setPosts] = useState<Movie[]>([]);
-  const [choices, setChoices] = useState<number[]>([]);
 
   const onChecked = (movieIds: number[]) => {
-    setChoices(movieIds);
+    const choices = posts.filter(x => movieIds.includes(x.id))
+    props.onChange(choices);
   }
 
 
@@ -33,7 +33,7 @@ function App(props: AppProps) {
 
   return (
     <div style={{ maxWidth: '1350px', display: 'flex', margin: 'auto' }}>
-      <Checkbox.Group onChange={onChecked
+      <Checkbox.Group onChange={(checkedValues) => onChecked(checkedValues as number[])
       }>
         <Row gutter={[8, 8]}>
           {posts.map((post) => (

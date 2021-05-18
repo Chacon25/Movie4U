@@ -1,5 +1,4 @@
-import { Col, Row, Image, Checkbox, Card } from "antd";
-const { Meta } = Card;
+import { Col, Checkbox, Card } from "antd";
 
 export type MovieView = {
     title: string;

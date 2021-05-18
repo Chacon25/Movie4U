@@ -1,33 +1,30 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb, Button } from 'antd';
+import { Menu, Button } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
-import ReactDOM from "react-dom";
 import { Header } from "antd/lib/layout/layout";
 import logo from './images/logo.png'
+import { MovieChoice } from "./models";
 
 
 
+type NavbarProps = {
+    choices: MovieChoice[];
+}
 
-
-export default function Navbar() {
+export default function Navbar({ choices }: NavbarProps) {
 
     return (
 
         <Header style={{ display: "flex" }}>
             <img src={logo} width={100} alt="logo" style={{ margin: '10px' }} />
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-                <Menu.Item key="1">Movies</Menu.Item>
+            <Button type="ghost" shape="round" icon={<MailOutlined />} size='large' style={{ margin: '10px', backgroundColor: 'green', borderColor: 'green', color: 'white' }} onClick={() => {
+                console.log('llamar al backend');
+                console.log(choices);
 
 
-                <Button type="ghost" shape="round" icon={<MailOutlined />} size='large' style={{ marginLeft: '20px', backgroundColor: 'green', borderColor: 'green', color: 'white' }} >
-                    Send
-
-
-                </Button>
-
-
-
-            </Menu>
+            }} >
+                Send
+            </Button>
         </Header >
 
 

@@ -1,26 +1,23 @@
 import React, { useState } from 'react'
 import App from './App'
-import Navbar from './Navbar'
+import { MovieChoice } from './models';
+import Navbar from './Navbar';
+import { Typography } from "antd";
 
-interface MovieChoice {
-    id: number;
-    title: string;
-    genra_ids: number[];
-}
-
-
+const { Paragraph } = Typography;
 
 export default function Container() {
 
     const [movieChoices, setMovieChoices] = useState<MovieChoice[]>([]);
 
     function onChange(choices: MovieChoice[]) {
-
+        setMovieChoices(choices);
     }
 
     return (
         <div>
             <Navbar choices={movieChoices} />
+            <Paragraph style={{ margin: '60px', textAlign: 'center' }}>Please check the movies you like then, click on the send button to get recommendations</Paragraph>
             <App onChange={onChange} />
         </div>
     )
