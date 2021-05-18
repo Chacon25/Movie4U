@@ -6,6 +6,7 @@ export type MovieView = {
     id: number;
     overview: string;
     poster_path: string;
+
 };
 export default function Display(props: MovieView) {
     return (

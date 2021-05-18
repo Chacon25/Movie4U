@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Header from './header';
 import reportWebVitals from './reportWebVitals';
 import "antd/dist/antd.css";
+import Container from './Container';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <App />
+
+
+    <Container />
+
   </React.StrictMode >,
   document.getElementById('root')
 );
