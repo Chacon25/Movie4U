@@ -18,9 +18,8 @@ export default function Navbar({ choices }: NavbarProps) {
         <Header style={{ display: "flex" }}>
             <img src={logo} width={100} alt="logo" style={{ margin: '10px' }} />
             <Button type="ghost" shape="round" icon={<MailOutlined />} size='large' style={{ margin: '10px', backgroundColor: 'green', borderColor: 'green', color: 'white' }} onClick={() => {
-                console.log('llamar al backend');
+                console.log('call backend');
                 console.log(choices);
-
 
             }} >
                 Send

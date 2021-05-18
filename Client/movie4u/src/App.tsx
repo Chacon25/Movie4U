@@ -9,7 +9,7 @@ export interface Movie {
   title: string;
   overview: string;
   poster_path: string;
-  genra_ids: number[];
+  genre_ids: number[];
 }
 
 type AppProps = {
@@ -20,7 +20,7 @@ function App(props: AppProps) {
   const [posts, setPosts] = useState<Movie[]>([]);
 
   const onChecked = (movieIds: number[]) => {
-    const choices = posts.filter(x => movieIds.includes(x.id))
+    const choices = posts.filter(x => movieIds.includes(x.id)).map(movie => ({ id: movie.id, genre_ids: movie.genre_ids, title: movie.title } as MovieChoice))
     props.onChange(choices);
   }
 
