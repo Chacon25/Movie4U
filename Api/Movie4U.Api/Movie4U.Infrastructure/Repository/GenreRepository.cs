@@ -1,4 +1,5 @@
-﻿using Movie4U.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Movie4U.Core.Entities;
 using Movie4U.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace Movie4U.Infrastructure.Repository
         }
 
      
-        public async Task<Genre> GetById(int id)
+        public Task<Genre> GetById(int id)
         {
-            return (Genre)_genreDbContext.Genre.Where(x => x.Id == id);
+            return (Task<Genre>)_genreDbContext.Genre.Where(x => x.Id == id);
         }
     }
         

@@ -22,7 +22,8 @@ namespace Movie4U.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Genre>>> Get([FromBody] int id)
+        [Route("{id}")]
+        public async Task<ActionResult<IEnumerable<Genre>>> Get( int id)
         {
 
             var ServiceResult = await _genreService.GetbyId(id);
