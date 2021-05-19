@@ -13,6 +13,6 @@ namespace Movie4U.Core.Interfaces
 
         Task<ServiceResult<Genre>> GetbyId(int id);
 
-        Task<ServiceResult<Genre>> SendData(MovieChoice data);
+        Task<ServiceResult<IEnumerable<Genre>>> SendData(ICollection<MovieChoice> data);
     }
 }

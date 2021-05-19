@@ -4,6 +4,7 @@ using Movie4U.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,11 @@ namespace Movie4U.Infrastructure.Repository
         public async Task<Genre> GetById(int id)
         {
             return await _genreDbContext.Genre.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<IEnumerable<Genre>> GetInfoByIds(Expression<Func<Genre, bool>> predicate)
+        {
+            return await _genreDbContext.Genre.Where(predicate).ToListAsync();
         }
     }
         

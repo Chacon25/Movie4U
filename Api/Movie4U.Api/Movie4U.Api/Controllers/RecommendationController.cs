@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Movie4U.Api.Models;
 using Movie4U.Core.Entities;
 using Movie4U.Core.Enum;
 using Movie4U.Core.Interfaces;
+using Movie4U.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace Movie4U.Api.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<Genre>>> Post([FromBody]MovieChoice data)
+        public async Task<ActionResult<IEnumerable<Genre>>> Post([FromBody] ICollection<MovieChoice> data)
         {
 
             var ServiceResult = await _genreService.SendData(data);

@@ -32,15 +32,37 @@ namespace Movie4U.Core.Services
             return ServiceResult<Genre>.SuccessResult(result);
         }
 
-        public Task<ServiceResult<Genre>> SendData(MovieChoice data)
+        public async Task<ServiceResult<IEnumerable<Genre>>> SendData(ICollection<MovieChoice> data)
         {
 
-
-            data.Id
-
+            Movie tmpMovie = new Movie();
 
 
-            throw new NotImplementedException();
+            List<Genre> tmpGenres = new List<Genre>();
+            
+
+
+            foreach (var item in data)
+            {
+
+                tmpMovie.Id = item.Id;
+                tmpMovie.Name = item.Title;
+                _moviepository.Add(tmpMovie);
+
+                foreach (var item2 in item.genre_ids)
+                {
+
+                    var result = await _genreService.GetById(item2);
+       
+                    tmpGenres.Add(result);
+
+                }
+
+            }
+
+            _moviepository.SaveChanges();
+
+            return ServiceResult<IEnumerable<Genre>>.SuccessResult(tmpGenres);
         }
     }
 }

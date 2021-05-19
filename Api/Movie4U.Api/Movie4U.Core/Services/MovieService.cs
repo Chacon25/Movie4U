@@ -25,6 +25,6 @@ namespace Movie4U.Core.Services
             return ServiceResult<IEnumerable<Movie>>.SuccessResult(result);
         }
 
-      
+  
     }
 }

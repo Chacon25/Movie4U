@@ -1,4 +1,5 @@
-﻿using Movie4U.Core.Enum;
+﻿using Movie4U.Core.Entities;
+using Movie4U.Core.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,11 @@ namespace Movie4U.Core
 
         }
 
+        internal static ServiceResult<IEnumerable<T>> SuccessResult(ServiceResult<T> result)
+        {
+            throw new NotImplementedException();
+        }
+
         public static ServiceResult<T> SuccessResult(T entity )
         {
             return new ServiceResult<T>(ResponseCode.Success, string.Empty, entity);
@@ -40,5 +46,7 @@ namespace Movie4U.Core
             return new ServiceResult<T>(ResponseCode.NotFound, error, default(T));
 
         }
+
+       
     }
 }
