@@ -12,6 +12,6 @@ namespace Movie4U.Core.Interfaces
 
         Task<ServiceResult<IEnumerable<Movie>>> GetAll();
 
-        Task<ServiceResult<IEnumerable<Genre>>> GetbyId(int id);
+      
     }
 }

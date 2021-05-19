@@ -33,16 +33,5 @@ namespace Movie4U.Api.Controllers
             return Ok(ServiceResult.Result);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movie>>> Get()
-        {
-
-            var ServiceResult = await _movieService.GetAll();
-            if (ServiceResult.ResponseCode != ResponseCode.Success)
-                return BadRequest(ServiceResult.Error);
-
-            return Ok(ServiceResult.Result);
-        }
-
     }
 }
