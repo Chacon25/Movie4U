@@ -20,9 +20,9 @@ namespace Movie4U.Infrastructure.Repository
         }
 
      
-        public Task<Genre> GetById(int id)
+        public async Task<Genre> GetById(int id)
         {
-            return (Task<Genre>)_genreDbContext.Genre.Where(x => x.Id == id);
+            return await _genreDbContext.Genre.FirstOrDefaultAsync(x => x.Id == id);
         }
     }
         
