@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Movie4U.Api.Models;
 using Movie4U.Core.Entities;
 using Movie4U.Core.Enum;
 using Movie4U.Core.Interfaces;
@@ -27,6 +28,18 @@ namespace Movie4U.Api.Controllers
         {
 
             var ServiceResult = await _genreService.GetbyId(id);
+            if (ServiceResult.ResponseCode != ResponseCode.Success)
+                return BadRequest(ServiceResult.Error);
+
+            return Ok(ServiceResult.Result);
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<Genre>>> Post([FromBody]MovieChoice data)
+        {
+
+            var ServiceResult = await _genreService.SendData(data);
             if (ServiceResult.ResponseCode != ResponseCode.Success)
                 return BadRequest(ServiceResult.Error);
 

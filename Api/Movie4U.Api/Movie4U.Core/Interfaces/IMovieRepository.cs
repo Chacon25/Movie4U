@@ -10,6 +10,6 @@ namespace Movie4U.Core.Interfaces
     public interface IMovieRepository
     {
 
-       Task<IEnumerable<Movie>> FillterAll();
+        Task<ServiceResult<Genre>> FillterAll();
     }
 }

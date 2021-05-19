@@ -10,7 +10,7 @@ namespace Movie4U.Core.Interfaces
     public interface IMovieService
     {
 
-        Task<ServiceResult<IEnumerable<Movie>>> GetAll();
+        Task<ServiceResult<Genre>> GetAll();
 
       
     }
