@@ -62,6 +62,8 @@ namespace Movie4U.Core.Services
 
             _moviepository.SaveChanges();
 
+          
+
             return ServiceResult<IEnumerable<Genre>>.SuccessResult(tmpGenres);
         }
     }

@@ -34,6 +34,7 @@ namespace Movie4U.Api
         {
 
             services.AddControllers();
+            services.AddCors();
             services.AddHttpContextAccessor();
             services.AddDbContext<Movie4UDbContext>((s, o) => o.UseSqlite("Data Source=Movie4Udb.db"));
             services.AddScoped(typeof(IRepository<>), typeof(EntityFrameworkRepository<>));
@@ -58,7 +59,7 @@ namespace Movie4U.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movie4U.Api v1"));
             }
-
+            app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             app.UseHttpsRedirection();
 
             app.UseRouting();
