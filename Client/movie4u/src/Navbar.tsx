@@ -21,6 +21,17 @@ export default function Navbar({ choices }: NavbarProps) {
                 console.log('call backend');
                 console.log(choices);
 
+                fetch("https://localhost:44390/api/Recommendation", {
+                    method: 'POST',
+                    body: JSON.stringify(choices),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                    .catch(error => console.error('Error:', error))
+                    .then(response => console.log('Success:', response));
+
+
             }} >
                 Send
             </Button>

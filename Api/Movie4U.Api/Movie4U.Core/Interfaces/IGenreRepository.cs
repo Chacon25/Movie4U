@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Movie4U.Core.Interfaces
 {
-    public interface IMovieService
+    public interface IGenreRepository
     {
-
-        Task<ServiceResult<IEnumerable<Movie>>> GetAll();
-
-        Task<ServiceResult<IEnumerable<Genre>>> GetbyId(int id);
+        Task<Genre> GetById(int id);
     }
 }

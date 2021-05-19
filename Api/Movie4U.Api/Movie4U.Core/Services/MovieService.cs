@@ -12,6 +12,7 @@ namespace Movie4U.Core.Services
     {
 
         private readonly IMovieRepository _movieService;
+        private readonly IGenreRepository _GenreService;
 
         public MovieService(IMovieRepository movieService)
         {
@@ -22,6 +23,11 @@ namespace Movie4U.Core.Services
         {
             var result = await _movieService.FillterAll();
             return ServiceResult<IEnumerable<Movie>>.SuccessResult(result);
+        }
+
+        public Task<ServiceResult<IEnumerable<Genre>>> GetbyId(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -17,7 +17,7 @@ export default function Container() {
     return (
         <div>
             <Navbar choices={movieChoices} />
-            <Paragraph style={{ margin: '50px', textAlign: 'center', fontSize: '20px' }}>Please check the movies you like then, click on the send button to get recommendations.</Paragraph>
+            <Paragraph style={{ margin: '50px', textAlign: 'center', fontSize: '20px' }}>Please check the movies that you like and click on the send button to get recommendations.</Paragraph>
             <App onChange={onChange} />
 
 
