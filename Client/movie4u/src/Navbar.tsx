@@ -18,8 +18,8 @@ export default function Navbar({ choices }: NavbarProps) {
         <Header style={{ display: "flex" }}>
             <img src={logo} width={100} alt="logo" style={{ margin: '10px' }} />
             <Button type="ghost" shape="round" icon={<MailOutlined />} size='large' style={{ margin: '10px', backgroundColor: 'green', borderColor: 'green', color: 'white' }} onClick={() => {
-                console.log('call backend');
-                console.log(choices);
+                // console.log('call backend');
+                // console.log(choices);
 
                 fetch("https://localhost:44390/api/Recommendation", {
                     method: 'POST',

@@ -2,6 +2,7 @@
 using Movie4U.Core.Interfaces;
 using Movie4U.Core.Models;
 using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +40,8 @@ namespace Movie4U.Core.Services
 
 
             List<Genre> tmpGenres = new List<Genre>();
-            
+
+            List<Movie> movieExist = (List<Movie>)await _movieService.FillterAll();
 
 
             foreach (var item in data)
@@ -47,24 +49,40 @@ namespace Movie4U.Core.Services
 
                 tmpMovie.Id = item.Id;
                 tmpMovie.Name = item.Title;
-                _moviepository.Add(tmpMovie);
+                var isExist = movieExist.Exists(x => x.Id == tmpMovie.Id);
+                if (!isExist)
+                {
+                    _moviepository.Add(tmpMovie);
+                    _moviepository.SaveChanges();
+
+                }
 
                 foreach (var item2 in item.genre_ids)
                 {
 
                     var result = await _genreService.GetById(item2);
-       
+
                     tmpGenres.Add(result);
 
                 }
 
             }
 
-            _moviepository.SaveChanges();
+
+         
+
+          
+            
 
           
 
-            return ServiceResult<IEnumerable<Genre>>.SuccessResult(tmpGenres);
+
+
+
+            var uniqueGenra = tmpGenres.Distinct().ToList();
+
+
+            return ServiceResult<IEnumerable<Genre>>.SuccessResult(uniqueGenra);
         }
     }
 }

@@ -206,6 +206,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.23.2, )"
             }
           },
           "imports": [

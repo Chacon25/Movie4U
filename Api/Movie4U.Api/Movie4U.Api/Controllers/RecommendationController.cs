@@ -3,6 +3,7 @@ using Movie4U.Core.Entities;
 using Movie4U.Core.Enum;
 using Movie4U.Core.Interfaces;
 using Movie4U.Core.Models;
+using Movie4U.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,10 @@ namespace Movie4U.Api.Controllers
             var ServiceResult = await _genreService.SendData(data);
             if (ServiceResult.ResponseCode != ResponseCode.Success)
                 return BadRequest(ServiceResult.Error);
+
+
+            var emailService = new EmailService();
+            await emailService.SendEmails("fernandocha14@gmail.com", ServiceResult.Result.ToList());
 
             return Ok(ServiceResult.Result);
         }

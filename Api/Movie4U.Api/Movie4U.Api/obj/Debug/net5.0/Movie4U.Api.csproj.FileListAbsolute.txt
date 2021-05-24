@@ -59,3 +59,6 @@ C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Ap
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.pdb
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.genruntimeconfig.cache
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\SendGrid.dll
+C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\StarkbankEcdsa.dll
