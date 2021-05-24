@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Movie4U.Api.Controllers
 {
-    [ApiController]
+   
     [Route("api/[controller]")]
     public class RecommendationController : Controller
     {
@@ -37,16 +37,16 @@ namespace Movie4U.Api.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<Genre>>> Post([FromBody] ICollection<MovieChoice> data)
+        public async Task<ActionResult<IEnumerable<Genre>>> Post([FromBody] ObjectRecommendationDto data )
         {
 
-            var ServiceResult = await _genreService.SendData(data);
+            var ServiceResult = await _genreService.SendData(data.Choices);
             if (ServiceResult.ResponseCode != ResponseCode.Success)
                 return BadRequest(ServiceResult.Error);
 
 
             var emailService = new EmailService();
-            await emailService.SendEmails("fernandocha14@gmail.com", ServiceResult.Result.ToList());
+            await emailService.SendEmails(data.User.Email, ServiceResult.Result.ToList());
 
             return Ok(ServiceResult.Result);
         }

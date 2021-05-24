@@ -13,7 +13,9 @@ namespace Movie4U.Core.Models
         public string Title { get; set; }
 
         public List<int> genre_ids { get; set; }
-    
+        
+
+
     }
 
     public class Dat

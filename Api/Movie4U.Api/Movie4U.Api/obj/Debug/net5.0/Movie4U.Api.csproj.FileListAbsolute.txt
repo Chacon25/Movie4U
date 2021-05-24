@@ -18,10 +18,13 @@ C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Ap
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\SendGrid.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\SQLitePCLRaw.nativelibrary.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\SQLitePCLRaw.core.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\StarkbankEcdsa.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -48,6 +51,7 @@ C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Ap
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.AssemblyInfoInputs.cache
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.AssemblyInfo.cs
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.csproj.CoreCompileInputs.cache
+C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\staticwebassets\Movie4U.Api.StaticWebAssets.Manifest.cache
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\staticwebassets\Movie4U.Api.StaticWebAssets.xml
@@ -58,7 +62,3 @@ C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Ap
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\ref\Movie4U.Api.dll
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.pdb
 C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.genruntimeconfig.cache
-C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\obj\Debug\net5.0\Movie4U.Api.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\SendGrid.dll
-C:\Users\MARCOFERNANDOCHACONM\Desktop\Movie4U\Movie4U\Api\Movie4U.Api\Movie4U.Api\bin\Debug\net5.0\StarkbankEcdsa.dll

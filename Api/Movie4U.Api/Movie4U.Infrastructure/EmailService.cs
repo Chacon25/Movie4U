@@ -73,7 +73,7 @@ namespace Movie4U.Infrastructure
             var toAddress = new EmailAddress(email);
             toAddress.Name = "Marco";
 
-            var apiKey = "";
+            var apiKey = "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";
             //Environment.GetEnvironmentVariable("EmailSenderKey");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("marco.fernando.chacon@gmail.com" ,"Marco Chacon");

@@ -7,6 +7,6 @@ export const LoginButton = () => {
     const { loginWithRedirect } = useAuth0();
 
     return (
-        <Button onClick={() => loginWithRedirect}> Login</ Button >
+        <Button size='large' style={{ display: 'flex', margin: '10px 10px 10px auto', backgroundColor: 'green', borderColor: 'green', color: 'white', }} onClick={() => loginWithRedirect()}> Login</ Button >
     )
 }
