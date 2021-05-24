@@ -18,8 +18,6 @@ namespace Movie4U.Core.Entities
 
         public string Email { get; set; }
 
-        public string Password { get; set; }
-
         public ICollection<Choice> Choices { get; set; }
 
     }

@@ -40,7 +40,7 @@ namespace Movie4U.Api.Controllers
         public async Task<ActionResult<IEnumerable<Genre>>> Post([FromBody] ObjectRecommendationDto data )
         {
 
-            var ServiceResult = await _genreService.SendData(data.Choices);
+            var ServiceResult = await _genreService.SendData(data.Choices , data.User);
             if (ServiceResult.ResponseCode != ResponseCode.Success)
                 return BadRequest(ServiceResult.Error);
 

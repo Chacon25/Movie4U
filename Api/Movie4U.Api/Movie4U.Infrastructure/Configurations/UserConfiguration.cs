@@ -21,7 +21,7 @@ namespace Movie4U.Infrastructure.Configurations
 
             builder.Property(xx => xx.Name).IsRequired();
             builder.Property(xx => xx.Email).IsRequired();
-            builder.Property(xx => xx.Password).IsRequired();
+           
 
         }
     }

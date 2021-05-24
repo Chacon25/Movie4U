@@ -15,16 +15,20 @@ namespace Movie4U.Core.Services
         private readonly IGenreRepository _genreService;
         private readonly IMovieRepository _movieService;
 
+        private readonly IRepository<User> _userService;
         private readonly IRepository<Genre> _genrepository;
         private readonly IRepository<Movie> _moviepository;
 
 
-        public GenreService(IGenreRepository genreService, IMovieRepository movieService, IRepository<Genre> genrepository, IRepository<Movie> moviepository)
+        public GenreService(IGenreRepository genreService, IMovieRepository movieService, IRepository<Genre> genrepository, IRepository<Movie> moviepository, IRepository<User> userService)
         {
             _genreService = genreService;
             _movieService = movieService;
             _genrepository = genrepository;
             _moviepository = moviepository;
+            _userService = userService;
+
+
         }
         public async Task<ServiceResult<Genre>> GetbyId(int id)
         {
@@ -33,16 +37,27 @@ namespace Movie4U.Core.Services
             return ServiceResult<Genre>.SuccessResult(result);
         }
 
-        public async Task<ServiceResult<IEnumerable<Genre>>> SendData(ICollection<MovieChoice> data)
+        public async Task<ServiceResult<IEnumerable<Genre>>> SendData(ICollection<MovieChoice> data , UserDto user)
         {
 
             Movie tmpMovie = new Movie();
-
+            User tmpUser = new User();
 
             List<Genre> tmpGenres = new List<Genre>();
 
             List<Movie> movieExist = (List<Movie>)await _movieService.FillterAll();
 
+            
+
+            List<User> userExist = (List<User>)_userService.GetAll();
+
+            var isExistUser = userExist.Exists(x => x.Name == user.Name);
+            if (!isExistUser)
+            {
+                _userService.Add(tmpMovie);
+                _userService.SaveChanges();
+
+            }
 
             foreach (var item in data)
             {
