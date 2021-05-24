@@ -4,7 +4,9 @@ import { MailOutlined } from '@ant-design/icons';
 import { Header } from "antd/lib/layout/layout";
 import logo from './images/logo.png'
 import { MovieChoice } from "./models";
-
+import { LoginButton } from "./login";
+import { logoutButton } from "./logout";
+import { Profile } from "./Profile";
 
 
 type NavbarProps = {
@@ -35,6 +37,8 @@ export default function Navbar({ choices }: NavbarProps) {
             }} >
                 Send
             </Button>
+            <LoginButton ></LoginButton>
+
         </Header >
 
 

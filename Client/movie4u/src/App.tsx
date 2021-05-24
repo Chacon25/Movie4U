@@ -4,6 +4,8 @@ import Display from "./Display";
 import { MovieChoice } from "./models";
 
 
+
+
 export interface Movie {
   id: number;
   title: string;
