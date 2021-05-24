@@ -2,16 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import "antd/dist/antd.css";
+import { Auth0Provider } from '@auth0/auth0-react'
 import Container from './Container';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <Auth0Provider domain="movie4u.us.auth0.com"
+      clientId="Uk99XvFUaw635vSL7W0pD2gGGTHwOnuk"
+      redirectUri={window.location.origin} >
 
-
-    <Container />
-
+      <Container />
+    </Auth0Provider>
   </React.StrictMode >,
   document.getElementById('root')
 );
