@@ -53,22 +53,12 @@ namespace Movie4U.Api.Controllers
         }
 
 
-        //[HttpPost]
-
-        //public async Task<ActionResult> SendEmail([FromBody] EmailDto email)
-        //{
-
-        //   var emailService = new EmailService();
-        //    await emailService.SendEmails(email.Email);
-
-        //    return Ok();
-        //}
 
 
 
     }
     public class EmailDto
     {
-    public string Email { get; set; }
+        public string Email { get; set; }
     }
 }

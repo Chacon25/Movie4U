@@ -8,8 +8,8 @@ using Movie4U.Infrastructure;
 namespace Movie4U.Infrastructure.Migrations
 {
     [DbContext(typeof(Movie4UDbContext))]
-    [Migration("20210513163506_SecondCreate")]
-    partial class SecondCreate
+    [Migration("20210525002311_InitialMigrations")]
+    partial class InitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,10 +104,6 @@ namespace Movie4U.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

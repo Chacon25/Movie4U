@@ -51,6 +51,7 @@ namespace Movie4U.Core.Services
             List<Movie> movieExist = (List<Movie>)await _movieService.FillterAll();
 
             tmpUser.Name = user.Name;
+            tmpUser.User_Name = user.Nickname;
             tmpUser.Email = user.Email;
 
             List<User> userExist = (List<User>)_userService.GetAll();
