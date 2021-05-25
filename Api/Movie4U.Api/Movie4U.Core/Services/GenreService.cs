@@ -57,12 +57,6 @@ namespace Movie4U.Core.Services
             List<User> userExist = (List<User>)_userService.GetAll();
 
            
-
-
-        
-
-           
-
             foreach (var item in data)
             {
 
@@ -108,8 +102,11 @@ namespace Movie4U.Core.Services
 
             }
 
+            tmpChoice.UserId = tmpUser.Id;
+            tmpChoice.Genres = uniqueGenra;
 
-
+            _choiceService.Update(tmpChoice);
+            _choiceService.SaveChanges();
 
 
 
