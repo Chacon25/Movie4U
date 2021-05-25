@@ -16,17 +16,19 @@ namespace Movie4U.Core.Services
         private readonly IMovieRepository _movieService;
 
         private readonly IRepository<User> _userService;
+        private readonly IRepository<Choice> _choiceService;
         private readonly IRepository<Genre> _genrepository;
         private readonly IRepository<Movie> _moviepository;
 
 
-        public GenreService(IGenreRepository genreService, IMovieRepository movieService, IRepository<Genre> genrepository, IRepository<Movie> moviepository, IRepository<User> userService)
+        public GenreService(IGenreRepository genreService, IMovieRepository movieService, IRepository<Genre> genrepository, IRepository<Movie> moviepository, IRepository<User> userService , IRepository<Choice> choiceService)
         {
             _genreService = genreService;
             _movieService = movieService;
             _genrepository = genrepository;
             _moviepository = moviepository;
             _userService = userService;
+            _choiceService = choiceService;
 
 
         }
@@ -41,23 +43,24 @@ namespace Movie4U.Core.Services
         {
 
             Movie tmpMovie = new Movie();
+            Choice tmpChoice = new Choice();
             User tmpUser = new User();
 
             List<Genre> tmpGenres = new List<Genre>();
 
             List<Movie> movieExist = (List<Movie>)await _movieService.FillterAll();
 
-            
+            tmpUser.Name = user.Name;
+            tmpUser.Email = user.Email;
 
             List<User> userExist = (List<User>)_userService.GetAll();
 
-            var isExistUser = userExist.Exists(x => x.Name == user.Name);
-            if (!isExistUser)
-            {
-                _userService.Add(tmpMovie);
-                _userService.SaveChanges();
+           
 
-            }
+
+        
+
+           
 
             foreach (var item in data)
             {
@@ -84,17 +87,29 @@ namespace Movie4U.Core.Services
             }
 
 
-         
-
-          
-            
-
-          
-
 
 
 
             var uniqueGenra = tmpGenres.Distinct().ToList();
+
+
+            var isExistUser = userExist.Exists(x => x.Name == user.Name);
+            if (!isExistUser)
+            {
+                tmpUser.Id = tmpUser.Id++;
+                _userService.Add(tmpUser);
+                _userService.SaveChanges();
+
+                tmpChoice.UserId = tmpUser.Id;
+                tmpChoice.Genres = uniqueGenra;
+                _choiceService.Add(tmpChoice);
+                _choiceService.SaveChanges();
+
+            }
+
+
+
+
 
 
             return ServiceResult<IEnumerable<Genre>>.SuccessResult(uniqueGenra);
