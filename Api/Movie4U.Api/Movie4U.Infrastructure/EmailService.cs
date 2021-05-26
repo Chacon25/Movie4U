@@ -15,16 +15,8 @@ namespace Movie4U.Infrastructure
     public class EmailService
     {
             
-
-
-
-
-        
-
         public async Task SendEmails(string email , List<Genre> Genres)
         {
-       
-
             string result;
             List<Results> selectionMovies = new List<Results>();
             foreach (var item in Genres)
@@ -41,10 +33,7 @@ namespace Movie4U.Infrastructure
 
             string viewMovie = "";
             string vieTitle = "";
-
             string MainView = "";
-
-
             foreach (var item in uniqueMovies)
             {
 
@@ -65,16 +54,9 @@ namespace Movie4U.Infrastructure
                 vieTitle = " ";
             }
 
-           
-            
-
-
-
             var toAddress = new EmailAddress(email);
             toAddress.Name = "Marco";
-
             var apiKey = "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";
-            //Environment.GetEnvironmentVariable("EmailSenderKey");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("marcof.chacon@gmail.com" ,"Marco Chacon");
             var subject = "Your Movie a to recommendo you is ";
@@ -85,9 +67,8 @@ namespace Movie4U.Infrastructure
                 "<p style=\"text-align: center; \"><strong>Thank you for using our website!</strong></p>" +
                 "<p style=\"text-align: center; \"><strong>&nbsp;</strong></p>";
             var msg = MailHelper.CreateSingleEmail(from, toAddress, subject,plainTextContent,htmlContent);
-           // var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, recipients, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
-           // Console.WriteLine(response.Body);
+          
         }
     }
 }

@@ -14,11 +14,8 @@ namespace Movie4U.Core.Services
     {
         private readonly IGenreRepository _genreService;
         private readonly IMovieRepository _movieService;
-
-      
         private readonly IRepository<User> _userService;
         private readonly IChoiceRepository _choiceService;
-  
         private readonly IMovieRepository _moviepository;
 
 
@@ -26,7 +23,6 @@ namespace Movie4U.Core.Services
         {
             _genreService = genreService;
             _movieService = movieService;
-      
             _moviepository = moviepository;
             _userService = userService;
             _choiceService = choiceService;
@@ -50,7 +46,6 @@ namespace Movie4U.Core.Services
             List<Movie> movieExist = (List<Movie>)await _movieService.FillterAll();
             foreach (var item in data)
             {
-
                 tmpMovie.Id = item.Id;
                 tmpMovie.Name = item.Title;
                 var isExist = movieExist.Exists(x => x.Id == tmpMovie.Id);
@@ -71,10 +66,7 @@ namespace Movie4U.Core.Services
                     tmpMovie.Genres = deleteDuplicate;
                     await _moviepository.AddAsync(tmpMovie);
                     tmpMovie = new Movie();
-
                 }
-
-
             }
             List<Genre> uniqueGenra = tmpGenres.Distinct().ToList();
            
@@ -95,16 +87,9 @@ namespace Movie4U.Core.Services
             else
             {
                 User userId =  _userService.GetByName(user.Name);
-               // Choice choiceId = await _choiceService.GetByIdChoice(userId.Id);
-               // tmpChoice.Id = choiceId.Id;
-               // uniqueGenra.AddRange(choiceId.Genres);
-               ////_choiceService.Remove(tmpChoice);
                 tmpChoice.UserId = userId.Id;
                 tmpChoice.Genres = uniqueGenra;
                 await _choiceService.AddAsync(tmpChoice);
-              //  await _choiceService.SaveChangesAsync();
-
-                //await _choiceService.UpdateAsync(tmpChoice);
             }
 
             return ServiceResult<IEnumerable<Genre>>.SuccessResult(uniqueGenra);

@@ -42,7 +42,6 @@ namespace Movie4U.Api
             services.AddScoped(typeof(IRepository<User>), typeof(EntityFrameworkRepository<User>));
             services.AddScoped(typeof(IRepository<Movie>), typeof(EntityFrameworkRepository<Movie>));
             services.AddScoped<IMovieRepository, MovieRepository>();
-            services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IChoiceRepository, ChoiceRepository>();
