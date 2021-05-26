@@ -56,7 +56,7 @@ namespace Movie4U.Infrastructure
 
             var toAddress = new EmailAddress(email);
             toAddress.Name = "Marco";
-            var apiKey = "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";
+            var apiKey = "";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("marcof.chacon@gmail.com" ,"Marco Chacon");
             var subject = "Your Movie a to recommendo you is ";
