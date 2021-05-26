@@ -15,17 +15,18 @@ namespace Movie4U.Core.Services
         private readonly IGenreRepository _genreService;
         private readonly IMovieRepository _movieService;
 
+      
         private readonly IRepository<User> _userService;
-        private readonly IRepository<Choice> _choiceService;
-        private readonly IRepository<Genre> _genrepository;
-        private readonly IRepository<Movie> _moviepository;
+        private readonly IChoiceRepository _choiceService;
+  
+        private readonly IMovieRepository _moviepository;
 
 
-        public GenreService(IGenreRepository genreService, IMovieRepository movieService, IRepository<Genre> genrepository, IRepository<Movie> moviepository, IRepository<User> userService , IRepository<Choice> choiceService)
+        public GenreService(IGenreRepository genreService, IMovieRepository movieService, IMovieRepository moviepository, IRepository<User> userService, IChoiceRepository choiceService)
         {
             _genreService = genreService;
             _movieService = movieService;
-            _genrepository = genrepository;
+      
             _moviepository = moviepository;
             _userService = userService;
             _choiceService = choiceService;
@@ -39,76 +40,72 @@ namespace Movie4U.Core.Services
             return ServiceResult<Genre>.SuccessResult(result);
         }
 
-        public async Task<ServiceResult<IEnumerable<Genre>>> SendData(ICollection<MovieChoice> data , UserDto user)
+        public async Task<ServiceResult<IEnumerable<Genre>>> SendData(ICollection<MovieChoice> data, UserDto user)
         {
 
             Movie tmpMovie = new Movie();
             Choice tmpChoice = new Choice();
             User tmpUser = new User();
-
             List<Genre> tmpGenres = new List<Genre>();
-
             List<Movie> movieExist = (List<Movie>)await _movieService.FillterAll();
-
-            tmpUser.Name = user.Name;
-            tmpUser.User_Name = user.Nickname;
-            tmpUser.Email = user.Email;
-
-            List<User> userExist = (List<User>)_userService.GetAll();
-
-           
             foreach (var item in data)
             {
 
                 tmpMovie.Id = item.Id;
                 tmpMovie.Name = item.Title;
                 var isExist = movieExist.Exists(x => x.Id == tmpMovie.Id);
-                if (!isExist)
-                {
-                    _moviepository.Add(tmpMovie);
-                    _moviepository.SaveChanges();
-
-                }
-
+               
                 foreach (var item2 in item.genre_ids)
                 {
 
                     var result = await _genreService.GetById(item2);
 
                     tmpGenres.Add(result);
+                    tmpMovie.Genres.Add(result) ;
+
+                }
+                if (!isExist)
+                {
+                    var deleteDuplicate = tmpMovie.Genres.GroupBy(x => x.Id).Select(x => x.First()).ToList();
+
+                    tmpMovie.Genres = deleteDuplicate;
+                    await _moviepository.AddAsync(tmpMovie);
+                    tmpMovie = new Movie();
 
                 }
 
+
             }
-
-
-
-
-
-            var uniqueGenra = tmpGenres.Distinct().ToList();
-
+            List<Genre> uniqueGenra = tmpGenres.Distinct().ToList();
+           
+            List<User> userExist = (List<User>)_userService.GetAll();
 
             var isExistUser = userExist.Exists(x => x.Name == user.Name);
             if (!isExistUser)
             {
-                tmpUser.Id = tmpUser.Id++;
+                tmpUser.Name = user.Name;
+                tmpUser.User_Name = user.Nickname;
+                tmpUser.Email = user.Email;
                 _userService.Add(tmpUser);
-                _userService.SaveChanges();
-
                 tmpChoice.UserId = tmpUser.Id;
                 tmpChoice.Genres = uniqueGenra;
-                _choiceService.Add(tmpChoice);
-                _choiceService.SaveChanges();
-
+                await _choiceService.AddAsync(tmpChoice);
+                _userService.SaveChanges();
             }
+            else
+            {
+                User userId =  _userService.GetByName(user.Name);
+               // Choice choiceId = await _choiceService.GetByIdChoice(userId.Id);
+               // tmpChoice.Id = choiceId.Id;
+               // uniqueGenra.AddRange(choiceId.Genres);
+               ////_choiceService.Remove(tmpChoice);
+                tmpChoice.UserId = userId.Id;
+                tmpChoice.Genres = uniqueGenra;
+                await _choiceService.AddAsync(tmpChoice);
+              //  await _choiceService.SaveChangesAsync();
 
-            tmpChoice.UserId = tmpUser.Id;
-            tmpChoice.Genres = uniqueGenra;
-
-            _choiceService.Update(tmpChoice);
-            _choiceService.SaveChanges();
-
-
+                //await _choiceService.UpdateAsync(tmpChoice);
+            }
 
             return ServiceResult<IEnumerable<Genre>>.SuccessResult(uniqueGenra);
         }

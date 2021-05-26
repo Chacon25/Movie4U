@@ -41,14 +41,14 @@ namespace Movie4U.Api.Controllers
         {
 
             var ServiceResult = await _genreService.SendData(data.Choices , data.User);
-            if (ServiceResult.ResponseCode != ResponseCode.Success)
+            if (ServiceResult.ResponseCode != ResponseCode  .Success)
                 return BadRequest(ServiceResult.Error);
 
 
             var emailService = new EmailService();
             await emailService.SendEmails(data.User.Email, ServiceResult.Result.ToList());
 
-            return Ok(ServiceResult.Result);
+            return Ok();
         }
 
     }

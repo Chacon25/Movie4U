@@ -73,10 +73,10 @@ namespace Movie4U.Infrastructure
             var toAddress = new EmailAddress(email);
             toAddress.Name = "Marco";
 
-            var apiKey = "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";
+            var apiKey = "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";
             //Environment.GetEnvironmentVariable("EmailSenderKey");
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("marco.fernando.chacon@gmail.com" ,"Marco Chacon");
+            var from = new EmailAddress("marcof.chacon@gmail.com" ,"Marco Chacon");
             var subject = "Your Movie a to recommendo you is ";
             var plainTextContent = $"Your Movie to recommendo you is ...";
             var htmlContent = "<h1 style=\"color: #5e9ca0; text-align: center;\">HERE ARE SOME RECOMMENDATIONS FOR YOU!</h1>" +
@@ -87,7 +87,7 @@ namespace Movie4U.Infrastructure
             var msg = MailHelper.CreateSingleEmail(from, toAddress, subject,plainTextContent,htmlContent);
            // var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, recipients, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
-            Console.WriteLine(response.Body);
+           // Console.WriteLine(response.Body);
         }
     }
 }

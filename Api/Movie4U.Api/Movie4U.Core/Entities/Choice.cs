@@ -16,5 +16,7 @@ namespace Movie4U.Core.Entities
         public int UserId { get; set; }
 
         public ICollection<Genre> Genres { get; set; }
+
+      
     }
 }

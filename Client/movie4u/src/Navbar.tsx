@@ -30,8 +30,8 @@ export default function Navbar({ choices }: NavbarProps) {
                     <>
 
                         <Button type="ghost" shape="round" icon={<MailOutlined />} size='large' style={{ margin: '10px', backgroundColor: 'green', borderColor: 'green', color: 'white' }} onClick={() => {
-                            // console.log('call backend');
-                            //   console.log(user);
+
+                            //console.log(user);
 
                             fetch("https://localhost:44390/api/Recommendation", {
                                 method: 'POST',
@@ -39,9 +39,10 @@ export default function Navbar({ choices }: NavbarProps) {
                                 headers: {
                                     'Content-Type': 'application/json'
                                 }
-                            }).then(res => res.json())
-                                .catch(error => console.error('Error:', error))
-                                .then(response => console.log('Success:', response));
+                            }).then(res => console.log(res))
+                                .catch(error => console.error('Error:', error));
+
+
 
 
                         }}

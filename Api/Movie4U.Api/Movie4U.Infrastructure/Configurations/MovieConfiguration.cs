@@ -14,6 +14,7 @@ namespace Movie4U.Infrastructure.Configurations
         public void Configure(EntityTypeBuilder<Movie> builder)
         {
             builder.HasKey(xx => xx.Id);
+
             builder.Property(xx => xx.Id).ValueGeneratedOnAdd();
 
             builder.Property(xx => xx.Name).IsRequired();

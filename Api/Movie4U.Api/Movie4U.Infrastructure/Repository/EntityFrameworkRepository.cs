@@ -1,4 +1,5 @@
-﻿using Movie4U.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Movie4U.Core.Entities;
 using Movie4U.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -21,10 +22,13 @@ namespace Movie4U.Infrastructure.Repository
         }
         public T Add(T entity)
         {
+            
             _movie4UDbContext.Add(entity);
             _movie4UDbContext.SaveChanges();
             return entity;
         }
+    
+
 
         public IEnumerable<T> Filter(Expression<Func<T, bool>> predicate)
         {
@@ -41,6 +45,12 @@ namespace Movie4U.Infrastructure.Repository
             return _movie4UDbContext.Set<T>().FirstOrDefault(x => x.Id == id);
         }
 
+
+
+        public User GetByName(string Name)
+        {
+            return _movie4UDbContext.Set<User>().FirstOrDefault(x => x.Name == Name);
+        }
         public int SaveChanges()
         {
             return _movie4UDbContext.SaveChanges();
@@ -53,5 +63,7 @@ namespace Movie4U.Infrastructure.Repository
             _movie4UDbContext.SaveChanges();
             return updated;
         }
+
+    
     }
 }

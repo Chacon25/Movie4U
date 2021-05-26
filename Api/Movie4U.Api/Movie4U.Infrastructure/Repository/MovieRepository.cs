@@ -32,5 +32,12 @@ namespace Movie4U.Infrastructure.Repository
             
             }).ToListAsync();
         }
+        public async Task<Movie> AddAsync(Movie entity)
+        {
+
+            await _movieDbContext.Movie.AddAsync(entity);
+            await _movieDbContext.SaveChangesAsync();
+            return entity;
+        }
     }
 }

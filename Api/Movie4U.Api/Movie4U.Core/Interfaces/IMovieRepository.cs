@@ -11,5 +11,6 @@ namespace Movie4U.Core.Interfaces
     {
 
         Task<IEnumerable<Movie>> FillterAll();
+        Task<Movie> AddAsync(Movie entity);
     }
 }

@@ -21,9 +21,6 @@ namespace Movie4U.Core.Entities
 
         public ICollection<Choice> Choices { get; set; }
 
-        public static explicit operator Task<object>(Genre v)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

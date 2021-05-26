@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Movie4U.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -18,6 +19,10 @@ namespace Movie4U.Core.Interfaces
         T Add(T entity);
 
         T Update(T entity);
+
+        User GetByName(string Name);
+
+       
 
         int SaveChanges();
 
